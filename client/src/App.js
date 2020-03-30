@@ -1,9 +1,32 @@
 import React from 'react';
-import SignUp from './pages/SignUp';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Podcasts from "./pages/Podcasts";
+// import Detail from "./pages/Detail";
+import NoMatch from "./pages/NoMatch";
+import Nav from "./components/Nav";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
-    <div> <SignUp /> </div>
+    <Router>
+      <div>
+        <Nav />
+        <Switch>
+          <Route exact path={["/", "/signup"]}>
+            <SignUp />
+          </Route>
+          <Route exact path={["/podcasts"]}>
+            <Podcasts />
+          </Route>
+          <Route exact path="/podcasts/:id">
+            {/* <Detail /> */}
+          </Route>
+          <Route>
+            <NoMatch />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
