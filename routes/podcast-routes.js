@@ -11,8 +11,8 @@ module.exports = function (app) {
       where: {
         id: req.params.id
       }
-    }).then(function (dbTrip) {
-      res.send(dbTrip[0]);
+    }).then(function (dbPodcast) {
+      res.send(dbPodcast[0]);
     });
   });
 
