@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Login from './Login';
+
 
 class SignUp extends Component {
     state = {
@@ -43,7 +45,7 @@ class SignUp extends Component {
         return axios.post("/api/signup", {email, password})
     .then(function (data) {
         console.log(data);
-        window.location.replace("/members");
+        window.location.replace("/podcasts");
         // If there's an error, handle it by throwing up a bootstrap alert
         })
         .catch(this.handleLoginErr);
@@ -59,7 +61,7 @@ class SignUp extends Component {
     render() {
         return (
 
-            <body id="signup-bg">
+            <div>
                 <div className="container">
                     <h1 className="card-title">Welcome to Pod Help Me</h1>
                     <section>
@@ -114,7 +116,7 @@ class SignUp extends Component {
 
                             </div>
                             <div className="card-footer text-center" id="card-footer-bg" style={{fontSize: '15pt', fontWeight: "bolder"}}>
-                                <span><a href="login.html">Login Page</a></span>
+                                <span><a href={<Login />}>Login Page</a></span>
                             </div>
                         </div>
                     </section>
@@ -122,7 +124,7 @@ class SignUp extends Component {
                 <div className="footer">
                     <p>&copy Pod Help Me 2020</p>
                 </div>
-            </body>
+            </div>
         );
     }
 };
