@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-// import XX from "../components/XX";
 
 class SignUp extends Component {
     state = {
@@ -39,12 +38,7 @@ class SignUp extends Component {
         }
     };
 
-    //**do i need the below line?
-    // .catch(err => this.setState({ error: err.message }));
-
     // When the signup button is clicked, we validate the email and password are not blank
-
-    // function signUpUser(email, password) {
     signUpUser(email, password) {
         return axios.post("/api/signup", {email, password})
     .then(function (data) {
@@ -57,7 +51,8 @@ class SignUp extends Component {
 
     handleLoginErr(err) {
         if (err) { console.log("Your email is already in use!"); }
-        // $("#alert").text("Your email is already in use!");
+        //**how do I convert this to react?
+        //$("#alert").text("Your email is already in use!");
         // $("#alert").fadeIn(500);
       }
 
