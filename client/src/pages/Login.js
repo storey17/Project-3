@@ -96,7 +96,8 @@ class Login extends Component {
                             </div>
 
                             <div className="card-footer text-center" id="card-footer-bg" style={{ fontSize: "15pt" }}>
-                                <span><Link to="/">Sign-Up Page</Link></span>
+                            {/* <span><a href={<SignUp />}>Sign-Up Page</a></span> */}                               <span><Link to="/">Sign-Up Page</Link></span> 
+
                             </div>
 
                         </div>
