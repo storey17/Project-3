@@ -61,7 +61,7 @@ function Podcasts() {
             <Row>
                 <Col size="md-6">
                     <Jumbotron>
-                        <h1>Podcasts I Want To Listen To</h1>
+                        <h2>Podcasts To Listen To</h2>
                     </Jumbotron>
                     <form>
                         <Input
@@ -98,7 +98,7 @@ function Podcasts() {
 
                 <Col size="md-6 sm-12">
                     <Jumbotron>
-                        <h1>Podcasts Needing My Ears</h1>
+                        <h2>Podcasts Needing My Ears</h2>
                     </Jumbotron>
                     {podcasts.length ? (
                         <List>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import './App.css';
 import Podcasts from "./pages/Podcasts";
 // import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
