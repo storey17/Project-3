@@ -5,7 +5,8 @@ import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import { Input, TextArea1, TextArea2, FormBtn } from "../components/Form";
+import { Input, TextArea1, TextArea2 } from "../components/Form";
+import { FormBtn } from "../components/Form/FormBtn";
 
 function Podcasts() {
     // Setting our component's initial state
@@ -19,6 +20,7 @@ function Podcasts() {
 
     // Loads all podcasts and sets them to podcasts
     function loadPodcasts() {
+        console.log("loading worked");
         API.getPodcasts()
             .then(res =>
                 setPodcasts(res.data)
@@ -43,7 +45,9 @@ function Podcasts() {
     // Then reload podcasts from the database
     function handleFormSubmit(event) {
         event.preventDefault();
+        console.log("outside");
         if (formObject.episodeTitle && formObject.podcastTitle) {
+            console.log("inside");
             API.savePodcast({
                 episodeTitle: formObject.episodeTitle,
                 podcastTitle: formObject.podcastTitle,
@@ -88,7 +92,7 @@ function Podcasts() {
                             onClick={handleFormSubmit}
                         >
                             Submit Podcast
-              </FormBtn>
+                        </FormBtn>
                     </form>
                 </Col>
                 <Col size="md-6 sm-12">
@@ -98,13 +102,13 @@ function Podcasts() {
                     {podcasts.length ? (
                         <List>
                             {podcasts.map(podcast => (
-                                <ListItem key={podcast._id}>
-                                    <Link to={"/podcasts/" + podcast._id}>
+                                <ListItem key={podcast.id}>
+                                    <Link to={"/podcasts/" + podcast.id}>
                                         <strong>
                                             {podcast.episodeTitle} by {podcast.podcastTitle}
                                         </strong>
                                     </Link>
-                                    <DeleteBtn onClick={() => deletePodcast(podcast._id)} />
+                                    <DeleteBtn onClick={() => deletePodcast(podcast.id)} />
                                 </ListItem>
                             ))}
                         </List>

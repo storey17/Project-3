@@ -16,21 +16,17 @@ module.exports = function (app) {
     });
   });
 
-  // getting all trips
-  app.get("/api/index", function (req, res) {
+  // getting all podcasts
+  app.get("/api/podcasts", function (req, res) {
 
     // console.log(req);
     db.Podcast.findAll({
       where: {
         UserId: req.user.id
       },
-      order: [
-        ["date", "DESC"],
-        ["time", "DESC"]
-      ]
     })
-      .then(function (dbTrips) {
-        res.json(dbTrips);
+      .then(function (dbPodcast) {
+        res.json(dbPodcast);
       });
   });
 
@@ -44,7 +40,8 @@ module.exports = function (app) {
       genre: req.body.genre,
       notes: req.body.notes,
       UserId: req.user.id
-    })
+    }).then(data => res.json(data))
+
       .catch((error) => {
         console.log(" error!");
         console.log(error);

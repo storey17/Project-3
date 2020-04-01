@@ -6,8 +6,15 @@ module.exports = (sequelize, DataTypes) => {
     genre: DataTypes.STRING,
     notes: DataTypes.STRING
   }, {});
-  Podcast.associate = function(models) {
-    // associations can be defined here
+  Podcast.associate = function (models) {
+    // podcasts belong to a user
+    models.Podcast.belongsTo(models.User, {
+      onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false
+      }
+    });
+    console.log(models);
   };
   return Podcast;
 };
