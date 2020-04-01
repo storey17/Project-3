@@ -6,9 +6,11 @@ import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import SignUp from "./pages/SignUp";
 import Login from './pages/Login';
+import ThirdPartyAPI from './components/ThirdPartyAPI';
 
 function App() {
   return (
+    
     <Router>
       <div>
         <Nav />

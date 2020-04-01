@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Login from './Login';
+import { Link } from 'react-router-dom';
 
 
 class SignUp extends Component {
@@ -116,7 +116,9 @@ class SignUp extends Component {
 
                             </div>
                             <div className="card-footer text-center" id="card-footer-bg" style={{fontSize: '15pt', fontWeight: "bolder"}}>
-                                <span><a href={<Login />}>Login Page</a></span>
+                                
+                                <span><Link to="/login">Login Page</Link></span> 
+
                             </div>
                         </div>
                     </section>
