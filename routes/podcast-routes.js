@@ -94,8 +94,4 @@ app.get("/api/search/:searchterm", function (req, res) {
 })
 
 
-
-
-
-
 };

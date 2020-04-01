@@ -91,10 +91,11 @@ function Podcasts() {
                             Submit Podcast
               </FormBtn>
                     </form>
-                <ThirdPartyAPI />
 
+                <ThirdPartyAPI />
                 
-                </Col>
+            </Col>
+
                 <Col size="md-6 sm-12">
                     <Jumbotron>
                         <h1>Podcasts Needing My Ears</h1>
