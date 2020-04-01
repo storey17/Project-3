@@ -5,7 +5,8 @@ import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import { Input, TextArea1, TextArea2, FormBtn } from "../components/Form";
+import { Input, TextArea1} from "../components/Form";
+import { FormBtn } from "../components/Form/FormBtn";
 import ThirdPartyAPI from "../components/ThirdPartyAPI";
 
 function Podcasts() {
@@ -20,6 +21,7 @@ function Podcasts() {
 
     // Loads all podcasts and sets them to podcasts
     function loadPodcasts() {
+        console.log("loading worked");
         API.getPodcasts()
             .then(res =>
                 setPodcasts(res.data)
@@ -44,12 +46,13 @@ function Podcasts() {
     // Then reload podcasts from the database
     function handleFormSubmit(event) {
         event.preventDefault();
-        if (formObject.episodeTitle && formObject.podcastTitle) {
+        console.log("outside");
+        if (formObject.episodeTitle || formObject.podcastTitle || formObject.genre) {
+            console.log("inside");
             API.savePodcast({
                 episodeTitle: formObject.episodeTitle,
                 podcastTitle: formObject.podcastTitle,
                 genre: formObject.genre,
-                notes: formObject.notes
             })
                 .then(res => loadPodcasts())
                 .catch(err => console.log(err));
@@ -79,17 +82,12 @@ function Podcasts() {
                             name="genre"
                             placeholder="Genre (Optional)"
                         />
-                        <TextArea2
-                            onChange={handleInputChange}
-                            name="notes"
-                            placeholder="Notes (Optional)"
-                        />
                         <FormBtn
-                            disabled={!(formObject.episodeTitle && formObject.podcastTitle)}
+                            disabled={!(formObject.episodeTitle || formObject.podcastTitle || formObject.genre)}
                             onClick={handleFormSubmit}
                         >
                             Submit Podcast
-              </FormBtn>
+                        </FormBtn>
                     </form>
 
                 <ThirdPartyAPI />
@@ -103,13 +101,13 @@ function Podcasts() {
                     {podcasts.length ? (
                         <List>
                             {podcasts.map(podcast => (
-                                <ListItem key={podcast._id}>
-                                    <Link to={"/podcasts/" + podcast._id}>
-                                        <strong>
-                                            {podcast.episodeTitle} by {podcast.podcastTitle}
-                                        </strong>
-                                    </Link>
-                                    <DeleteBtn onClick={() => deletePodcast(podcast._id)} />
+                                <ListItem key={podcast.id}>
+                                    <span to={"/podcasts/" + podcast.id}>
+                                            <strong>Episode</strong>: {podcast.episodeTitle}<br/>
+                                            <strong>Podcast</strong>: {podcast.podcastTitle}<br/>
+                                            <strong>Genre</strong>: {podcast.genre}
+                                    </span>
+                                    <DeleteBtn onClick={() => deletePodcast(podcast.id)} />
                                 </ListItem>
                             ))}
                         </List>
