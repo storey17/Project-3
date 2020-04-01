@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea1, TextArea2, FormBtn } from "../components/Form";
+import ThirdPartyAPI from "../components/ThirdPartyAPI";
 
 function Podcasts() {
     // Setting our component's initial state
@@ -60,7 +61,7 @@ function Podcasts() {
             <Row>
                 <Col size="md-6">
                     <Jumbotron>
-                        <h1>What Podcasts Should I Listen To?</h1>
+                        <h1>Podcasts I Want To Listen To</h1>
                     </Jumbotron>
                     <form>
                         <Input
@@ -90,7 +91,11 @@ function Podcasts() {
                             Submit Podcast
               </FormBtn>
                     </form>
-                </Col>
+
+                <ThirdPartyAPI />
+                
+            </Col>
+
                 <Col size="md-6 sm-12">
                     <Jumbotron>
                         <h1>Podcasts Needing My Ears</h1>
