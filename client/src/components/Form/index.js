@@ -17,12 +17,12 @@ export function TextArea1(props) {
   );
 }
 
-export function TextArea2(props) {
-  return (
-    <div className="form-group">
-      <textarea className="form-control" rows="5" {...props} />
-    </div>
-  );
-}
+// export function TextArea2(props) {
+//   return (
+//     <div className="form-group">
+//       <textarea className="form-control" rows="5" {...props} />
+//     </div>
+//   );
+// }
 
 

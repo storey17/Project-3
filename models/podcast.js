@@ -4,7 +4,6 @@ module.exports = (sequelize, DataTypes) => {
     episodeTitle: DataTypes.STRING,
     podcastTitle: DataTypes.STRING,
     genre: DataTypes.STRING,
-    notes: DataTypes.STRING
   }, {});
   Podcast.associate = function (models) {
     // podcasts belong to a user

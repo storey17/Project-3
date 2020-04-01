@@ -38,7 +38,6 @@ module.exports = function (app) {
       episodeTitle: req.body.episodeTitle,
       podcastTitle: req.body.podcastTitle,
       genre: req.body.genre,
-      notes: req.body.notes,
       UserId: req.user.id
     }).then(data => res.json(data))
 
@@ -61,25 +60,26 @@ module.exports = function (app) {
   });
 
   // DELETE route for deleting posts
-  app.delete("/api/podcast/:id", function (req, res) {
-    console.log(res);
+  app.delete("/api/podcasts/:id", function (req, res) {
+    // console.log(res);
     db.Podcast.destroy({
       where: {
         id: req.params.id
       }
-    })
-      .then(function (rowDeleted) { // rowDeleted will return number of rows deleted
-        if (rowDeleted === 1) {
-          console.log("Deleted successfully");
-          return;
-        }
-        else {
-          console.log("didnt delete anything");
-          return;
-        }
-      }, function (err) {
-        console.log(err);
-      });
+    }).then(data => res.json(data));
+      // .then(function (rowDeleted) { // rowDeleted will return number of rows deleted
+      //   console.log(rowDeleted);
+      //   if (rowDeleted === 1) {
+      //     console.log("Deleted successfully");
+      //     // return;
+      //   }
+      //   else {
+      //     console.log("didnt delete anything");
+      //     // return;
+      //   }
+      // }, function (err) {
+      //   console.log(err);
+      // });
   });
 
 };

@@ -46,13 +46,12 @@ function Podcasts() {
     function handleFormSubmit(event) {
         event.preventDefault();
         console.log("outside");
-        if (formObject.episodeTitle && formObject.podcastTitle) {
+        if (formObject.episodeTitle || formObject.podcastTitle || formObject.genre) {
             console.log("inside");
             API.savePodcast({
                 episodeTitle: formObject.episodeTitle,
                 podcastTitle: formObject.podcastTitle,
                 genre: formObject.genre,
-                notes: formObject.notes
             })
                 .then(res => loadPodcasts())
                 .catch(err => console.log(err));
@@ -82,13 +81,8 @@ function Podcasts() {
                             name="genre"
                             placeholder="Genre (Optional)"
                         />
-                        <TextArea2
-                            onChange={handleInputChange}
-                            name="notes"
-                            placeholder="Notes (Optional)"
-                        />
                         <FormBtn
-                            disabled={!(formObject.episodeTitle && formObject.podcastTitle)}
+                            disabled={!(formObject.episodeTitle || formObject.podcastTitle || formObject.genre)}
                             onClick={handleFormSubmit}
                         >
                             Submit Podcast
@@ -103,11 +97,11 @@ function Podcasts() {
                         <List>
                             {podcasts.map(podcast => (
                                 <ListItem key={podcast.id}>
-                                    <Link to={"/podcasts/" + podcast.id}>
-                                        <strong>
-                                            {podcast.episodeTitle} by {podcast.podcastTitle}
-                                        </strong>
-                                    </Link>
+                                    <span to={"/podcasts/" + podcast.id}>
+                                            <strong>Episode</strong>: {podcast.episodeTitle}<br/>
+                                            <strong>Podcast</strong>: {podcast.podcastTitle}<br/>
+                                            <strong>Genre</strong>: {podcast.genre}
+                                    </span>
                                     <DeleteBtn onClick={() => deletePodcast(podcast.id)} />
                                 </ListItem>
                             ))}
