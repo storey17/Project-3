@@ -1,4 +1,4 @@
-// CRUD for podcast table accepts get, post, put, delete
+// CRUD for podcast table that accepts get, post, put, delete
 
 var db = require("../models");
 const axios = require("axios");
@@ -67,19 +67,17 @@ module.exports = function (app) {
         id: req.params.id
       }
     }).then(data => res.json(data));
-      // .then(function (rowDeleted) { // rowDeleted will return number of rows deleted
-      //   console.log(rowDeleted);
-      //   if (rowDeleted === 1) {
-      //     console.log("Deleted successfully");
-      //     // return;
-      //   }
-      //   else {
-      //     console.log("didnt delete anything");
-      //     // return;
-      //   }
-      // }, function (err) {
-      //   console.log(err);
-      // });
   });
+
+app.get("/api/search/:searchterm", function (req, res) {
+  let searchTerm = req.params.searchterm;
+  axios.get('https://listen-api.listennotes.com/api/v2/search?q='+searchTerm+'&only_in=title%2Cdescription&language=English', {headers: {
+    'X-ListenAPI-Key': '2252a6101db34c99b55d6ca1043b3489'}})
+.then(response => {
+  res.json(response.data.results)
+})
+  .catch(err => res.json(err))
+})
+
 
 };
