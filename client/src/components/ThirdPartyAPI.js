@@ -36,7 +36,7 @@ function ThirdPartyAPI() {
     return (
 
         <div>
-            <h1>Find New Podcasts</h1>
+            <h2>Find New Podcasts</h2>
             <input
                 value={apiData.searchTerm}
                 name="searchTerm"
@@ -48,18 +48,17 @@ function ThirdPartyAPI() {
             <div>
                 {apiData.data.map(item => {
                     return ( 
-                        <div 
-                        key={item.title_original}
-                        className="card text-left">
-                      <img className="card-img-top" src={item.thumbnail} alt="podcast image"/>
-                      <div className="card-body">
-                        <h4 className="card-title">{item.title_original} by {item.podcast_title_original}</h4>
-                        <div className="card-text">
-                            <div dangerouslySetInnerHTML={{__html: item.description_highlighted}}/>
+                        <div key={item.title_original} className="card" style={{width: "20rem"}}>
+                            <img src={item.thumbnail} className="card-img-top" alt="podcast image"/>
+                            <div className="card-body">
+                            <h5 className="card-title">{item.title_original} by {item.podcast_title_original}</h5>
+                            <p className="card-text">
+                                <div dangerouslySetInnerHTML={{__html: item.description_highlighted}}/>
+                            </p>
+                            <a target="_blank" href={item.audio} className="btn btn-primary">Listen now!</a>
                             </div>
-                        <a href={item.audio}>Podcast Audio</a>
-                      </div>
-                    </div>
+                            <hr/>
+                            </div>
                     )
                 })}
             </div>

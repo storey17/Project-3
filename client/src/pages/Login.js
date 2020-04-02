@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import axios from "axios";
+import './Login.css';
 
 class Login extends Component {
     state = {
@@ -29,8 +30,6 @@ class Login extends Component {
         this.loginUser(userData.email, userData.password);
         this.setState({ email: "" });
         this.setState({ password: "" });
-
-        
     };
     
     // loginUser does a post to our "api/login" route and if successful, redirects us to the the members/podcasts page
@@ -51,7 +50,7 @@ class Login extends Component {
             <div>
                 <div className="container">
 
-                    <h1 className="card-title">Pod Help Me Login</h1>
+                    <h1 className="card-title justify-content-center">Pod Help Me Login</h1>
 
                     <section>
 

@@ -8,6 +8,7 @@ import { List, ListItem } from "../components/List";
 import { Input, TextArea1 } from "../components/Form";
 import { FormBtn } from "../components/Form/FormBtn";
 import ThirdPartyAPI from "../components/ThirdPartyAPI";
+import Nav from "../components/Nav";
 
 function Podcasts() {
     // Setting our component's initial state
@@ -62,11 +63,13 @@ function Podcasts() {
 
 
     return (
+        <div>
+        <Nav />
         <Container fluid>
             <Row>
                 <Col size="md-6">
                     <Jumbotron>
-                        <h1>Podcasts I Want To Listen To</h1>
+                        <h2>Podcasts To Listen To</h2>
                     </Jumbotron>
                     <form>
                         <Input
@@ -98,7 +101,7 @@ function Podcasts() {
 
                 <Col size="md-6 sm-12">
                     <Jumbotron>
-                        <h1>Podcasts Needing My Ears</h1>
+                        <h2>Podcasts Needing My Ears</h2>
                     </Jumbotron>
                     {podcasts.length ? (
                         <List>
@@ -119,6 +122,7 @@ function Podcasts() {
                 </Col>
             </Row>
         </Container>
+        </div>
     );
 };
 
