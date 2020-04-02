@@ -72,7 +72,7 @@ module.exports = function (app) {
 app.get("/api/search/:searchterm", function (req, res) {
   let searchTerm = req.params.searchterm;
   axios.get('https://listen-api.listennotes.com/api/v2/search?q='+searchTerm+'&only_in=title%2Cdescription&language=English', {headers: {
-    'X-ListenAPI-Key': '2252a6101db34c99b55d6ca1043b3489'}})
+    'X-ListenAPI-Key': process.env.PodcastAPIKey}})
 .then(response => {
   res.json(response.data.results)
 })
