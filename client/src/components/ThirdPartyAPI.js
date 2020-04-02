@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function ThirdPartyAPI() {
@@ -7,17 +7,11 @@ function ThirdPartyAPI() {
     let [apiData, setApiData] = useState({
         searchTerm: "",
         data: []
-      });
+    });
 
     useEffect(() => {
         console.log("use effect");
-        //**DO I NEED THIS HERE OR ON HANDLE SUBMIT FUNCTION?
-        // axios.get('/api/search/' + state.searchTerm)
-        // .then(data => {
-        //   console.log(data.data);
-        //   setState({ ...state, data: data });
-        // });
-      }, []);
+    }, []);
 
     const handleChange = e => {
         setApiData({ ...apiData, [e.target.name]: e.target.value });
@@ -25,10 +19,10 @@ function ThirdPartyAPI() {
 
     const handleSubmit = () => {
         axios.get('/api/search/' + apiData.searchTerm)
-        .then(data => {
-          console.log(data.data);
-          setApiData({ ...apiData, data: data.data });
-        });
+            .then(data => {
+                console.log(data.data);
+                setApiData({ ...apiData, data: data.data });
+            });
     };
 
 
@@ -47,18 +41,18 @@ function ThirdPartyAPI() {
 
             <div>
                 {apiData.data.map(item => {
-                    return ( 
-                        <div key={item.title_original} className="card" style={{width: "20rem"}}>
-                            <img src={item.thumbnail} className="card-img-top" alt="podcast image"/>
+                    return (
+                        <div key={item.title_original} className="card" style={{ width: "20rem" }}>
+                            <img src={item.thumbnail} className="card-img-top" alt="podcast image" />
                             <div className="card-body">
-                            <h5 className="card-title">{item.title_original} by {item.podcast_title_original}</h5>
-                            <p className="card-text">
-                                <div dangerouslySetInnerHTML={{__html: item.description_highlighted}}/>
-                            </p>
-                            <a target="_blank" href={item.audio} className="btn btn-primary">Listen now!</a>
+                                <h5 className="card-title">{item.title_original} by {item.podcast_title_original}</h5>
+                                <p className="card-text">
+                                    <div dangerouslySetInnerHTML={{ __html: item.description_highlighted }} />
+                                </p>
+                                <a target="_blank" href={item.audio} className="btn btn-primary">Listen now!</a>
                             </div>
-                            <hr/>
-                            </div>
+                            <hr />
+                        </div>
                     )
                 })}
             </div>

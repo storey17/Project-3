@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import DeleteBtn from "../components/DeleteBtn";
-import Jumbotron from "../components/Jumbotron";
-import API from "../utils/API";
+import DeleteBtn from "../../components/DeleteBtn";
+import Jumbotron from "../../components/Jumbotron";
+import API from "../../utils/API";
 import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
-import { Input, TextArea1} from "../components/Form";
-import { FormBtn } from "../components/Form/FormBtn";
-import ThirdPartyAPI from "../components/ThirdPartyAPI";
-import Nav from "../components/Nav";
+import { Col, Row, Container } from "../../components/Grid";
+import { List, ListItem } from "../../components/List";
+import { Input, TextArea1 } from "../../components/Form";
+import { FormBtn } from "../../components/Form/FormBtn";
+import ThirdPartyAPI from "../../components/ThirdPartyAPI";
+import Nav from "../../components/Nav";
 
 function Podcasts() {
     // Setting our component's initial state
@@ -40,7 +40,7 @@ function Podcasts() {
     // Handles updating component state when the user types into the input field
     function handleInputChange(event) {
         const { name, value } = event.target;
-        setFormObject({ ...formObject, [name]: value })
+        setFormObject({ ...formObject, [name]: value });
     };
 
     // When the form is submitted, use the API.savePodcast method to save the podcast data
@@ -62,6 +62,8 @@ function Podcasts() {
                 .catch(err => console.log(err));
         }
     };
+
+
 
     return (
         <div>
@@ -99,9 +101,9 @@ function Podcasts() {
                         </FormBtn>
                     </form>
 
-                <ThirdPartyAPI />
-                
-            </Col>
+                    <ThirdPartyAPI />
+
+                </Col>
 
                 <Col size="md-6 sm-12">
                     <Jumbotron>
@@ -112,9 +114,9 @@ function Podcasts() {
                             {podcasts.map(podcast => (
                                 <ListItem key={podcast.id}>
                                     <span to={"/podcasts/" + podcast.id}>
-                                            <strong>Episode</strong>: {podcast.episodeTitle}<br/>
-                                            <strong>Podcast</strong>: {podcast.podcastTitle}<br/>
-                                            <strong>Genre</strong>: {podcast.genre}
+                                        <strong>Episode</strong>: {podcast.episodeTitle}<br />
+                                        <strong>Podcast</strong>: {podcast.podcastTitle}<br />
+                                        <strong>Genre</strong>: {podcast.genre}
                                     </span>
                                     <DeleteBtn onClick={() => deletePodcast(podcast.id)} />
                                 </ListItem>
@@ -128,7 +130,6 @@ function Podcasts() {
         </Container>
         </div>
     );
-}
-
+};
 
 export default Podcasts;

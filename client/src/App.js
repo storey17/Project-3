@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
-import Podcasts from "./pages/Podcasts";
-import NoMatch from "./pages/NoMatch";
-import SignUp from "./pages/SignUp";
-import Login from './pages/Login';
+import Podcasts from "./pages/Podcasts/Podcasts";
+import NoMatch from "./pages/NoMatch/NoMatch";
+import SignUp from "./pages/SignUp/SignUp";
+import Login from './pages/Login/Login';
 
 function App() {
   return (

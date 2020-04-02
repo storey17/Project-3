@@ -31,7 +31,7 @@ class Login extends Component {
         this.setState({ email: "" });
         this.setState({ password: "" });
     };
-    
+
     // loginUser does a post to our "api/login" route and if successful, redirects us to the the members/podcasts page
     loginUser(email, password) {
         return axios.post("/api/login", { email, password })
@@ -50,14 +50,12 @@ class Login extends Component {
             <div>
                 <div className="container">
 
-                    <h1 className="card-title justify-content-center">Pod Help Me Login</h1>
+                    <section className="mt-5">
 
-                    <section>
-
-                        <div className="card" id="card-background" style={{ width: "30rem" }}>
+                        <div className="card mx-auto" id="card-background" style={{ width: "30rem" }}>
 
                             <div className="card-header" id="card-header-bg">
-                                <h3 style={{ textAlign: "center" }}>Login</h3>
+                                <h1 style={{ textAlign: "center" }}>Pod Help Me Login</h1>
                             </div>
 
                             <div className="card-body">
@@ -85,7 +83,7 @@ class Login extends Component {
                                     <button
                                         onClick={this.handleFormSubmit}
                                         type="submit"
-                                        className="btn btn-secondary btn-lg">Login</button>
+                                        className="btn btn-primary btn-lg pull-right">Login</button>
 
                                 </form>
 
@@ -94,7 +92,7 @@ class Login extends Component {
                             </div>
 
                             <div className="card-footer text-center" id="card-footer-bg" style={{ fontSize: "15pt" }}>
-                            <span><Link to="/">Sign-Up Page</Link></span> 
+                                <button className="btn btn-primary btn-lg"><Link to="/" style={{ color: 'white' }}>Sign-Up Page</Link></button>
 
                             </div>
 
@@ -104,9 +102,9 @@ class Login extends Component {
 
                 </div>
 
-                <div className="footer">
-                    <p>&copy Pod Help Me 2020</p>
-                </div>
+                <footer className="fixed-bottom footer text-center">
+                    <p>&copy; Pod Help Me 2020</p>
+                </footer>
 
             </div>
 
