@@ -8,9 +8,7 @@ function Nav() {
       <div className="navbar-header">
       </div>
       <h1>Welcome to Pod Help Me<span className="member-name"></span></h1>
-        <a className="navbar-brand" href="/logout">
-          <h5>Logout</h5>
-        </a>
+      <span style={{color: "white"}}><Link to="/login">Logout</Link></span>
     </div>
   </nav>
   );

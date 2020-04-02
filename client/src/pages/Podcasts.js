@@ -7,6 +7,7 @@ import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea1, TextArea2, FormBtn } from "../components/Form";
 import ThirdPartyAPI from "../components/ThirdPartyAPI";
+import Nav from "../components/Nav";
 
 function Podcasts() {
     // Setting our component's initial state
@@ -57,6 +58,8 @@ function Podcasts() {
     };
 
     return (
+        <div>
+        <Nav />
         <Container fluid>
             <Row>
                 <Col size="md-6">
@@ -119,6 +122,7 @@ function Podcasts() {
                 </Col>
             </Row>
         </Container>
+        </div>
     );
 }
 
