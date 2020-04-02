@@ -50,8 +50,6 @@ class Login extends Component {
             <div>
                 <div className="container">
 
-                    {/* <h1 className="card-title text-center">Pod Help Me Login</h1> */}
-
                     <section className="mt-5">
 
                         <div className="card mx-auto" id="card-background" style={{ width: "30rem" }}>

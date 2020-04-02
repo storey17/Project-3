@@ -25,7 +25,6 @@ class SignUp extends Component {
         if (!strongRegex.test(userData.password)) {
             this.setState({password:""});
             console.log("Not a strong enough password requires 1 lowercase, 1 uppercase, 1 numeric, 1 special character, and 8 characters or longer!");
-            //**how do i convert the below to react?
             // $("#alert").text("Not a strong enough password requires 1 lowercase, 1 uppercase, 1 numeric, 1 special character, and 8 characters or longer!");
             // $("#alert").fadeIn(500);
         }
@@ -63,9 +62,9 @@ class SignUp extends Component {
 
             <div>
                 <div className="container">
-                    <h1 className="card-title">Welcome to Pod Help Me</h1>
-                    <section>
-                        <div className="card" id="card-background" style={{width: "30rem"}}>
+                    <h1 className="card-title text-center mt-4">Welcome to Pod Help Me</h1>
+                    <section className="mt-5">
+                        <div className="card mx-auto" id="card-background" style={{ width: "30rem" }}>
                             <div className="card-header mb-3" id="card-header-bg">
                                 <h3 style={{textAlign: "center"}}>Sign-Up</h3>
                             </div>
@@ -105,27 +104,28 @@ class SignUp extends Component {
                                     <button
                                         onClick={this.handleFormSubmit}
                                         type="submit"
-                                        className="btn btn-secondary btn-lg">Sign Up</button>
+                                        className="btn btn-primary btn-lg pull-right">Sign Up</button>
                                 </form>
 
-                                <br />
+                                <br/>
+                                <br/>
+                                <br/>
 
                                 <section>
                                     <p className="text-content text-center">Password requires 8 characters. Has to include 1 lowercase, 1 uppercase, 1 numeric and 1 special character</p>
                                 </section>
 
                             </div>
-                            <div className="card-footer text-center" id="card-footer-bg" style={{fontSize: '15pt', fontWeight: "bolder"}}>
-                                
-                                <span><Link to="/login">Login Page</Link></span> 
+                            <div className="card-footer text-center" id="card-footer-bg" style={{fontSize: '15pt' }}>
+                                <button className="btn btn-primary btn-lg"><Link to="/login" style={{ color: 'white', }}>Login Page</Link></button> 
 
                             </div>
                         </div>
                     </section>
                 </div>
-                <div className="footer">
-                    <p>&copy Pod Help Me 2020</p>
-                </div>
+                <footer className="fixed-bottom footer text-center">
+                    <p>&copy; Pod Help Me 2020</p>
+                </footer>
             </div>
         );
     }
