@@ -47,15 +47,18 @@ function Podcasts() {
     // Then reload podcasts from the database
     function handleFormSubmit(event) {
         event.preventDefault();
-        console.log("outside");
         if (formObject.episodeTitle || formObject.podcastTitle || formObject.genre) {
-            console.log("inside");
             API.savePodcast({
                 episodeTitle: formObject.episodeTitle,
                 podcastTitle: formObject.podcastTitle,
                 genre: formObject.genre,
             })
-                .then(res => loadPodcasts())
+                .then(res => {
+                    loadPodcasts()
+                    setFormObject({ ...formObject, podcastTitle: "", episodeTitle: "", genre: "" })
+                }
+                )
+                
                 .catch(err => console.log(err));
         }
     };
@@ -75,16 +78,19 @@ function Podcasts() {
                         <Input
                             onChange={handleInputChange}
                             name="episodeTitle"
+                            value={formObject.episodeTitle}
                             placeholder="Episode Title (required)"
                         />
                         <Input
                             onChange={handleInputChange}
                             name="podcastTitle"
+                            value={formObject.podcastTitle}
                             placeholder="Podcast Title (required)"
                         />
                         <TextArea1
                             onChange={handleInputChange}
                             name="genre"
+                            value={formObject.genre}
                             placeholder="Genre (Optional)"
                         />
                         <FormBtn
