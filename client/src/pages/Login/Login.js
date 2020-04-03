@@ -52,7 +52,7 @@ class Login extends Component {
 
                     <section className="mt-5">
 
-                        <div className="card mx-auto" id="card-background" style={{ width: "30rem" }}>
+                        <div className="card mx-auto shadow-lg p-3 mb-5 bg-white rounded" id="card-background" style={{ width: "30rem" }}>
 
                             <div className="card-header" id="card-header-bg">
                                 <h1 style={{ textAlign: "center" }}>Pod Help Me Login</h1>

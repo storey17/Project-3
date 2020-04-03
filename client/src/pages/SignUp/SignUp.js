@@ -59,12 +59,12 @@ class SignUp extends Component {
 
     render() {
         return (
-
+            
             <div>
                 <div className="container">
                     <h1 className="card-title text-center mt-4">Welcome to Pod Help Me</h1>
                     <section className="mt-5">
-                        <div className="card mx-auto" id="card-background" style={{ width: "30rem" }}>
+                        <div className="card mx-auto shadow-lg p-3 mb-5 bg-white rounded" id="card-background" style={{ width: "30rem" }}>
                             <div className="card-header mb-3" id="card-header-bg">
                                 <h3 style={{textAlign: "center"}}>Sign-Up</h3>
                             </div>

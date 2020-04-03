@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import './ThirdPartyAPI.css';
 
 function ThirdPartyAPI() {
 
@@ -37,7 +38,7 @@ function ThirdPartyAPI() {
                 onChange={handleChange}
             />
 
-            <button onClick={handleSubmit}>Submit</button>
+            <button onClick={handleSubmit}>Submit</button>          
 
             <div>
                 {apiData.data.map(item => {
