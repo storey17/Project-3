@@ -9,6 +9,7 @@ import { Episode, Podcast, Genre } from "../../components/Form";
 import { FormBtn } from "../../components/Form/FormBtn";
 import ThirdPartyAPI from "../../components/ThirdPartyAPI/ThirdPartyAPI";
 import Nav from "../../components/Nav";
+import { MdHearing, MdPlaylistAdd } from 'react-icons/md';
 
 function Podcasts() {
     // Setting our component's initial state
@@ -72,7 +73,7 @@ function Podcasts() {
                         <section className="mt-5">
                             <div className="card mx-auto shadow-lg p-3 mb-5 bg-white rounded" style={{ width: "40rem", }}>
                                 <div className="card-header mb-3" id="card-header-bg" style={{ textAlign: "center", background: "#ff8e88" }}>
-                                    <h3><div className="fas fa-ear"></div>Podcasts Needing My Ears</h3>
+                                    <h3><MdHearing /> Podcasts Needing My Ears <MdHearing /></h3>
                                 </div>
                                 <div className="card-body">
                                     <form>
@@ -99,7 +100,7 @@ function Podcasts() {
                                     disabled={!(formObject.episodeTitle || formObject.podcastTitle || formObject.genre)}
                                     onClick={handleFormSubmit}
                                 >
-                                    Submit Podcast
+                                    
                                 </FormBtn>
                                     </form>
                                 </div>
