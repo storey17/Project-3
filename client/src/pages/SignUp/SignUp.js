@@ -104,7 +104,7 @@ class SignUp extends Component {
                                     <button
                                         onClick={this.handleFormSubmit}
                                         type="submit"
-                                        className="btn btn-primary btn-lg pull-right">Sign Up</button>
+                                        className="btn btn-success btn-lg pull-right">Sign Up</button>
                                 </form>
 
                                 <br/>

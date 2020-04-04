@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import { FiLogOut } from 'react-icons/fi';
 
 function Nav() {
   return (
@@ -8,7 +9,7 @@ function Nav() {
       <div className="navbar-header">
       </div>
       <h1>Pod Help Me<span className="member-name"></span></h1>
-      <span><Link style={{color: "white"}} to="/login">Logout</Link></span>
+      <span><Link style={{color: "white"}} to="/login">Logout <FiLogOut /></Link></span>
     </div>
   </nav>
   );

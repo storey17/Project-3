@@ -9,7 +9,7 @@ import { Episode, Podcast, Genre } from "../../components/Form";
 import { FormBtn } from "../../components/Form/FormBtn";
 import ThirdPartyAPI from "../../components/ThirdPartyAPI/ThirdPartyAPI";
 import Nav from "../../components/Nav";
-import { MdHearing, MdPlaylistAdd } from 'react-icons/md';
+import { MdHearing} from 'react-icons/md';
 
 function Podcasts() {
     // Setting our component's initial state
@@ -71,9 +71,9 @@ function Podcasts() {
                 <Row>
                     <Col size="md-6">
                         <section className="mt-5">
-                            <div className="card mx-auto shadow-lg p-3 mb-5 bg-white rounded" style={{ width: "40rem", }}>
+                            <div className="card mx-auto shadow-lg mb-5 bg-white rounded" style={{ width: "35rem", }}>
                                 <div className="card-header mb-3" id="card-header-bg" style={{ textAlign: "center", background: "#ff8e88" }}>
-                                    <h3><MdHearing /> Podcasts Needing My Ears <MdHearing /></h3>
+                                    <h3>Podcasts Needing My Ears <MdHearing /></h3>
                                 </div>
                                 <div className="card-body">
                                     <form>
@@ -81,14 +81,14 @@ function Podcasts() {
                                             onChange={handleInputChange}
                                             name="episodeTitle"
                                             value={formObject.episodeTitle}
-                                            placeholder="Episode Title"
+                                            placeholder="Episode Title (required)"
                                         />
 
                                         <Podcast
                                             onChange={handleInputChange}
                                             name="podcastTitle"
                                             value={formObject.podcastTitle}
-                                            placeholder="Podcast Title"
+                                            placeholder="Podcast Title (required)"
                                         />
                                         <Genre
                                             onChange={handleInputChange}
@@ -116,23 +116,25 @@ function Podcasts() {
 
                 <Row>
                     <Col size="md-6 sm-12">
-                    <section className="mt-5">
+                    <section className="mt-3">
+                    <div className="card mx-auto shadow-lg p-3 mb-5 bg-white rounded" style={{ width: "35rem" }}>
                         {podcasts.length ? (
-                            <List>
+                            <div>
                                 {podcasts.map(podcast => (
                                     <ListItem key={podcast.id}>
-                                        <span to={"/podcasts/" + podcast.id}>
+                                        <div to={"/podcasts/" + podcast.id}>
                                             <strong>Episode</strong>: {podcast.episodeTitle}<br />
                                             <strong>Podcast</strong>: {podcast.podcastTitle}<br />
                                             <strong>Genre</strong>: {podcast.genre}
-                                        </span>
+                                        </div>
                                         <DeleteBtn onClick={() => deletePodcast(podcast.id)} />
                                     </ListItem>
                                 ))}
-                            </List>
+                            </div>
                         ) : (
-                                <h3>No Results to Display</h3>
+                                <h4 style={{textAlign: 'center'}}>No Saved Podcasts</h4>
                             )}
+                            </div>
                             </section>
                     </Col>
 

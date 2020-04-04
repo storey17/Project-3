@@ -83,7 +83,7 @@ class Login extends Component {
                                     <button
                                         onClick={this.handleFormSubmit}
                                         type="submit"
-                                        className="btn btn-primary btn-lg pull-right">Login</button>
+                                        className="btn btn-success btn-lg pull-right">Login</button>
 
                                 </form>
 
