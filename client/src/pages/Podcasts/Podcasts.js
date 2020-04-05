@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import DeleteBtn from "../../components/DeleteBtn";
 import Jumbotron from "../../components/Jumbotron";
+import Jumbotron1 from "../../components/Jumbotron1/Jumbotron1";
+import Footer from "../../components/Footer/Footer";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
@@ -67,13 +69,15 @@ function Podcasts() {
     return (
         <div>
             <Nav />
+            <Jumbotron1 />
+
             <Container fluid>
                 <Row>
                     <Col size="md-6">
                         <section className="mt-5">
                             <div className="card mx-auto shadow-lg mb-5 bg-white rounded" style={{ width: "35rem", }}>
                                 <div className="card-header mb-3" id="card-header-bg" style={{ textAlign: "center", background: "#ff8e88" }}>
-                                    <h3>Podcasts Needing My Ears <MdHearing /></h3>
+                                    <h2>Podcasts Needing My Ears <MdHearing /></h2>
                                 </div>
                                 <div className="card-body">
                                     <form>
@@ -140,6 +144,7 @@ function Podcasts() {
 
                 </Row>
             </Container>
+            <Footer />
         </div>
     );
 };

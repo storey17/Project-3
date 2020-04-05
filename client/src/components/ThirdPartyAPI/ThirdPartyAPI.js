@@ -33,11 +33,12 @@ function ThirdPartyAPI() {
     return (
 
         <div>
-            <h2>Find New Podcasts</h2>
+            <h2>Find Your New Obsession</h2>
             <input
                 value={apiData.searchTerm}
                 name="searchTerm"
                 onChange={handleChange}
+                placeholder='What are you interested in?'
             />
             
             <button onClick={handleSubmit}>Search <GoSearch /></button>          
