@@ -121,6 +121,7 @@ function Podcasts() {
                         {podcasts.length ? (
                             <div>
                                 {podcasts.map(podcast => (
+                                    <List>
                                     <ListItem key={podcast.id}>
                                         <div to={"/podcasts/" + podcast.id}>
                                             <strong>Episode</strong>: {podcast.episodeTitle}<br />
@@ -129,6 +130,7 @@ function Podcasts() {
                                         </div>
                                         <DeleteBtn onClick={() => deletePodcast(podcast.id)} />
                                     </ListItem>
+                                    </List>
                                 ))}
                             </div>
                         ) : (
