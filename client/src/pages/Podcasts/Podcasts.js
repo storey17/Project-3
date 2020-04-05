@@ -5,10 +5,11 @@ import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
-import { Input, TextArea1 } from "../../components/Form";
+import { Episode, Podcast, Genre } from "../../components/Form";
 import { FormBtn } from "../../components/Form/FormBtn";
-import ThirdPartyAPI from "../../components/ThirdPartyAPI";
+import ThirdPartyAPI from "../../components/ThirdPartyAPI/ThirdPartyAPI";
 import Nav from "../../components/Nav";
+import { MdHearing} from 'react-icons/md';
 
 function Podcasts() {
     // Setting our component's initial state
@@ -58,76 +59,87 @@ function Podcasts() {
                     setFormObject({ ...formObject, podcastTitle: "", episodeTitle: "", genre: "" })
                 }
                 )
-                
+
                 .catch(err => console.log(err));
         }
     };
 
-
-
     return (
         <div>
-        <Nav />
-        <Container fluid>
-            <Row>
-                <Col size="md-6">
-                    <Jumbotron>
-                        <h2>Podcasts To Listen To</h2>
-                    </Jumbotron>
-                    <form>
-                        <Input
-                            onChange={handleInputChange}
-                            name="episodeTitle"
-                            value={formObject.episodeTitle}
-                            placeholder="Episode Title (required)"
-                        />
-                        <Input
-                            onChange={handleInputChange}
-                            name="podcastTitle"
-                            value={formObject.podcastTitle}
-                            placeholder="Podcast Title (required)"
-                        />
-                        <TextArea1
-                            onChange={handleInputChange}
-                            name="genre"
-                            value={formObject.genre}
-                            placeholder="Genre (Optional)"
-                        />
-                        <FormBtn
-                            disabled={!(formObject.episodeTitle || formObject.podcastTitle || formObject.genre)}
-                            onClick={handleFormSubmit}
-                        >
-                            Submit Podcast
-                        </FormBtn>
-                    </form>
+            <Nav />
+            <Container fluid>
+                <Row>
+                    <Col size="md-6">
+                        <section className="mt-5">
+                            <div className="card mx-auto shadow-lg mb-5 bg-white rounded" style={{ width: "35rem", }}>
+                                <div className="card-header mb-3" id="card-header-bg" style={{ textAlign: "center", background: "#ff8e88" }}>
+                                    <h3>Podcasts Needing My Ears <MdHearing /></h3>
+                                </div>
+                                <div className="card-body">
+                                    <form>
+                                        <Episode
+                                            onChange={handleInputChange}
+                                            name="episodeTitle"
+                                            value={formObject.episodeTitle}
+                                            placeholder="Episode Title (required)"
+                                        />
 
-                    <ThirdPartyAPI />
+                                        <Podcast
+                                            onChange={handleInputChange}
+                                            name="podcastTitle"
+                                            value={formObject.podcastTitle}
+                                            placeholder="Podcast Title (required)"
+                                        />
+                                        <Genre
+                                            onChange={handleInputChange}
+                                            name="genre"
+                                            value={formObject.genre}
+                                            placeholder="Genre"
+                                        />
+                                        <FormBtn
+                                    disabled={!(formObject.episodeTitle || formObject.podcastTitle || formObject.genre)}
+                                    onClick={handleFormSubmit}
+                                >
+                                    
+                                </FormBtn>
+                                    </form>
+                                </div>
+                            </div>
+                        </section>
 
-                </Col>
+                    </Col>
+                    <Col size="md-6 sm-12">
+                        <ThirdPartyAPI />
+                    </Col>
 
-                <Col size="md-6 sm-12">
-                    <Jumbotron>
-                        <h2>Podcasts Needing My Ears</h2>
-                    </Jumbotron>
-                    {podcasts.length ? (
-                        <List>
-                            {podcasts.map(podcast => (
-                                <ListItem key={podcast.id}>
-                                    <span to={"/podcasts/" + podcast.id}>
-                                        <strong>Episode</strong>: {podcast.episodeTitle}<br />
-                                        <strong>Podcast</strong>: {podcast.podcastTitle}<br />
-                                        <strong>Genre</strong>: {podcast.genre}
-                                    </span>
-                                    <DeleteBtn onClick={() => deletePodcast(podcast.id)} />
-                                </ListItem>
-                            ))}
-                        </List>
-                    ) : (
-                            <h3>No Results to Display</h3>
-                        )}
-                </Col>
-            </Row>
-        </Container>
+                </Row>
+
+                <Row>
+                    <Col size="md-6 sm-12">
+                    <section className="mt-3">
+                    <div className="card mx-auto shadow-lg p-3 mb-5 bg-white rounded" style={{ width: "35rem" }}>
+                        {podcasts.length ? (
+                            <div>
+                                {podcasts.map(podcast => (
+                                    <ListItem key={podcast.id}>
+                                        <div to={"/podcasts/" + podcast.id}>
+                                            <strong>Episode</strong>: {podcast.episodeTitle}<br />
+                                            <strong>Podcast</strong>: {podcast.podcastTitle}<br />
+                                            <strong>Genre</strong>: {podcast.genre}
+                                        </div>
+                                        <DeleteBtn onClick={() => deletePodcast(podcast.id)} />
+                                    </ListItem>
+                                ))}
+                            </div>
+                        ) : (
+                                <h4 style={{textAlign: 'center'}}>No Saved Podcasts</h4>
+                            )}
+                            </div>
+                            </section>
+                    </Col>
+
+                </Row>
+            </Container>
         </div>
     );
 };

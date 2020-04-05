@@ -1,6 +1,12 @@
 import React from "react";
+import { MdPlaylistAdd } from 'react-icons/md';
+
+
 export function FormBtn(props) {
-  return (<button {...props} style={{ float: "right", marginBottom: 10 }} className="btn btn-success">
-    {props.children}
-  </button>);
-}
+  return (
+    <button className="playlist-btn border-secondary btn-lg btn-light" style={{ color: 'black', float: "right", marginBottom: 10 }} {...props} >
+      {props.children}
+      <MdPlaylistAdd size={40}/> Save Podcast
+    </button>
+  );
+};

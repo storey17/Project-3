@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import './ThirdPartyAPI.css';
+import { GoSearch } from 'react-icons/go';
+
 
 function ThirdPartyAPI() {
 
@@ -36,8 +39,8 @@ function ThirdPartyAPI() {
                 name="searchTerm"
                 onChange={handleChange}
             />
-
-            <button onClick={handleSubmit}>Submit</button>
+            
+            <button onClick={handleSubmit}>Search <GoSearch /></button>          
 
             <div>
                 {apiData.data.map(item => {
