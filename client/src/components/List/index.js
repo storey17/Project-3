@@ -7,10 +7,12 @@ export function List({ children }) {
     <ul className="list-group list-group-flush">{children}
     </ul>
   );
-}
+};
 
 export function ListItem({ children }) {
-  return <li className="list-group-item">
-    <h5 className="mb-0 text-uppercase">{children}</h5>
+  return (
+  <li className="list-group-item">
+    <h5 className="mb-0">{children}</h5>
   </li>
-}
+  );
+};
