@@ -23,7 +23,7 @@ class SignUp extends Component {
         var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
 
         if (!strongRegex.test(userData.password)) {
-            this.setState({password:""});
+            this.setState({ password: "" });
             console.log("Not a strong enough password requires 1 lowercase, 1 uppercase, 1 numeric, 1 special character, and 8 characters or longer!");
             // $("#alert").text("Not a strong enough password requires 1 lowercase, 1 uppercase, 1 numeric, 1 special character, and 8 characters or longer!");
             // $("#alert").fadeIn(500);
@@ -41,32 +41,31 @@ class SignUp extends Component {
 
     // When the signup button is clicked, we validate the email and password are not blank
     signUpUser(email, password) {
-        return axios.post("/api/signup", {email, password})
-    .then(function (data) {
-        console.log(data);
-        window.location.replace("/podcasts");
-        // If there's an error, handle it by throwing up a bootstrap alert
-        })
-        .catch(this.handleLoginErr);
+        return axios.post("/api/signup", { email, password })
+            .then(function (data) {
+                console.log(data);
+                window.location.replace("/podcasts");
+                // If there's an error, handle it by throwing up a bootstrap alert
+            })
+            .catch(this.handleLoginErr);
     };
 
     handleLoginErr(err) {
         if (err) { console.log("Your email is already in use!"); }
-        //**how do I convert this to react?
         //$("#alert").text("Your email is already in use!");
         // $("#alert").fadeIn(500);
-      }
+    }
 
     render() {
         return (
-            
+
             <div>
                 <div className="container">
                     <h1 className="card-title text-center mt-4">Welcome to Pod Help Me</h1>
                     <section className="mt-5">
                         <div className="card mx-auto shadow-lg p-3 mb-5 bg-white rounded" id="card-background" style={{ width: "30rem" }}>
                             <div className="card-header mb-3" id="card-header-bg">
-                                <h3 style={{textAlign: "center"}}>Sign-Up</h3>
+                                <h3 style={{ textAlign: "center" }}>Sign-Up</h3>
                             </div>
 
                             <div className="card-body">
@@ -96,7 +95,7 @@ class SignUp extends Component {
                                             placeholder="Password" />
                                     </div>
 
-                                    <div style={{display: "none"}} id="alert" className="alert alert-danger" role="alert">
+                                    <div style={{ display: "none" }} id="alert" className="alert alert-danger" role="alert">
                                         <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                                         <span className="sr-only">Error:</span> <span className="msg"></span>
                                     </div>
@@ -107,17 +106,17 @@ class SignUp extends Component {
                                         className="btn btn-success btn-lg pull-right">Sign Up</button>
                                 </form>
 
-                                <br/>
-                                <br/>
-                                <br/>
+                                <br />
+                                <br />
+                                <br />
 
                                 <section>
                                     <p className="text-content text-center">Password requires 8 characters. Has to include 1 lowercase, 1 uppercase, 1 numeric and 1 special character</p>
                                 </section>
 
                             </div>
-                            <div className="card-footer text-center" id="card-footer-bg" style={{fontSize: '15pt' }}>
-                                <button className="btn btn-primary btn-lg"><Link to="/login" style={{ color: 'white', }}>Login Page</Link></button> 
+                            <div className="card-footer text-center" id="card-footer-bg" style={{ fontSize: '15pt' }}>
+                                <button className="btn btn-primary btn-lg"><Link to="/login" style={{ color: 'white', }}>Login Page</Link></button>
 
                             </div>
                         </div>

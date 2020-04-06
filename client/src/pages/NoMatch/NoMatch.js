@@ -1,10 +1,14 @@
 import React from "react";
 import { Col, Row, Container } from "../../components/Grid";
 import Jumbotron from "../../components/Jumbotron";
+import Jumbotron1 from "../../components/Jumbotron1/Jumbotron1";
+import Nav from "../../components/Nav";
 
 function NoMatch() {
   return (
     <Container fluid>
+      <Nav/>
+      <Jumbotron1/>
       <Row>
         <Col size="md-12">
           <Jumbotron>

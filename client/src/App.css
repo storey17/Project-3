@@ -5,3 +5,8 @@ h1 {
 h2 {
     font-family: 'Baloo Chettan 2', cursive;
 }
+
+.btn-primary, .btn-primary:disabled {
+    background-color: #375ABB;
+    border-color: #375ABB;
+}

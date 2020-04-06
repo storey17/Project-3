@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
 import DeleteBtn from "../../components/DeleteBtn";
-import Jumbotron from "../../components/Jumbotron";
 import Jumbotron1 from "../../components/Jumbotron1/Jumbotron1";
 import Footer from "../../components/Footer/Footer";
 import API from "../../utils/API";
-import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Episode, Podcast, Genre } from "../../components/Form";
 import { FormBtn } from "../../components/Form/FormBtn";
 import ThirdPartyAPI from "../../components/ThirdPartyAPI/ThirdPartyAPI";
 import Nav from "../../components/Nav";
-import { MdHearing} from 'react-icons/md';
+import { MdHearing } from 'react-icons/md';
 
 function Podcasts() {
     // Setting our component's initial state
@@ -70,80 +67,76 @@ function Podcasts() {
         <div>
             <Nav />
             <Jumbotron1 />
-
-            <Container fluid>
-                <Row>
-                    <Col size="md-6">
-                        <section className="mt-5">
-                            <div className="card mx-auto shadow-lg mb-5 bg-white rounded" style={{ width: "35rem", }}>
-                                <div className="card-header mb-3" id="card-header-bg" style={{ textAlign: "center", background: "#ff8e88" }}>
-                                    <h2>Podcasts Needing My Ears <MdHearing /></h2>
+            <div className="container-fluid px-md-0">
+                <div className="row justify-content-between no-gutters mx-md-5">
+                    <div className="col-12 col-md-4 position-md-sticky d-flex vh-md-100">
+                        <aside className="flex-grow-1 py-8 py-md-10">
+                            <section className="mt-5">
+                                <div className="card mx-auto shadow-lg mb-5 bg-white rounded" style={{ width: '35rem' }}>
+                                    <div className="card-header mb-3" id="card-header-bg" style={{ textAlign: 'center', background: '#ff8e88' }}>
+                                        <h2>Podcasts Needing My Ears <MdHearing /></h2>
+                                    </div>
+                                    <div className="card-body">
+                                        <form>
+                                            <Episode
+                                                onChange={handleInputChange}
+                                                name="episodeTitle"
+                                                value={formObject.episodeTitle}
+                                                placeholder="Episode Title (required)"
+                                            />
+                                            <Podcast
+                                                onChange={handleInputChange}
+                                                name="podcastTitle"
+                                                value={formObject.podcastTitle}
+                                                placeholder="Podcast Title (required)"
+                                            />
+                                            <Genre
+                                                onChange={handleInputChange}
+                                                name="genre"
+                                                value={formObject.genre}
+                                                placeholder="Genre"
+                                            />
+                                            <FormBtn
+                                                disabled={!(formObject.episodeTitle || formObject.podcastTitle || formObject.genre)}
+                                                onClick={handleFormSubmit}
+                                            >
+                                            </FormBtn>
+                                        </form>
+                                    </div>
                                 </div>
-                                <div className="card-body">
-                                    <form>
-                                        <Episode
-                                            onChange={handleInputChange}
-                                            name="episodeTitle"
-                                            value={formObject.episodeTitle}
-                                            placeholder="Episode Title (required)"
-                                        />
-
-                                        <Podcast
-                                            onChange={handleInputChange}
-                                            name="podcastTitle"
-                                            value={formObject.podcastTitle}
-                                            placeholder="Podcast Title (required)"
-                                        />
-                                        <Genre
-                                            onChange={handleInputChange}
-                                            name="genre"
-                                            value={formObject.genre}
-                                            placeholder="Genre"
-                                        />
-                                        <FormBtn
-                                    disabled={!(formObject.episodeTitle || formObject.podcastTitle || formObject.genre)}
-                                    onClick={handleFormSubmit}
-                                >
-                                    
-                                </FormBtn>
-                                    </form>
-                                </div>
-                            </div>
-                        </section>
-
-                    </Col>
-                    <Col size="md-6 sm-12">
-                        <ThirdPartyAPI />
-                    </Col>
-
-                </Row>
-
-                <Row>
-                    <Col size="md-6 sm-12">
-                    <section className="mt-3">
-                    <div className="card mx-auto shadow-lg p-3 mb-5 bg-white rounded" style={{ width: "35rem" }}>
-                        {podcasts.length ? (
-                            <div>
-                                {podcasts.map(podcast => (
-                                    <ListItem key={podcast.id}>
-                                        <div to={"/podcasts/" + podcast.id}>
-                                            <strong>Episode</strong>: {podcast.episodeTitle}<br />
-                                            <strong>Podcast</strong>: {podcast.podcastTitle}<br />
-                                            <strong>Genre</strong>: {podcast.genre}
-                                        </div>
-                                        <DeleteBtn onClick={() => deletePodcast(podcast.id)} />
-                                    </ListItem>
-                                ))}
-                            </div>
-                        ) : (
-                                <h4 style={{textAlign: 'center'}}>No Saved Podcasts</h4>
-                            )}
-                            </div>
                             </section>
-                    </Col>
+                            <section className="mt-3">
+                                <div className="card mx-auto shadow-lg p-3 mb-5 bg-white rounded" style={{ width: '35rem' }}>
+                                    {podcasts.length ? (
+                                        <div>
+                                            {podcasts.map(podcast => (
+                                                <List>
+                                                    <ListItem key={podcast.id}>
+                                                        <div to={"/podcasts/" + podcast.id}>
+                                                            <strong>Episode</strong>: {podcast.episodeTitle}<br />
+                                                            <strong>Podcast</strong>: {podcast.podcastTitle}<br />
+                                                            <strong>Genre</strong>: {podcast.genre}
+                                                        </div>
+                                                        <DeleteBtn onClick={() => deletePodcast(podcast.id)} />
+                                                    </ListItem>
+                                                </List>
+                                            ))}
+                                        </div>
+                                    ) : (
+                                            <h4 style={{ textAlign: 'center' }}>No Saved Podcasts</h4>
+                                        )}
+                                </div >
+                            </section >
+                        </aside >
 
-                </Row>
-            </Container>
+                        <div className="col-12 col-md-7">
+                            <section className="pt-md-10">
+                                <ThirdPartyAPI />
+                            </section>
+                        </div>
+                    </div >
+                </div >
+            </div>
             <Footer />
         </div>
     );
