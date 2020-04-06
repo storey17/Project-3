@@ -11,6 +11,6 @@ export function List({ children }) {
 
 export function ListItem({ children }) {
   return <li className="list-group-item">
-    <h5 className="d-flex mb-0 text-uppercase">{children}</h5>
+    <h5 className="mb-0 text-uppercase">{children}</h5>
   </li>
 }

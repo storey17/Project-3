@@ -5,7 +5,7 @@ import { MdDelete } from 'react-icons/md';
 
 function DeleteBtn(props) {
   return (
-    <span className="delete-btn btn-lg" {...props} role="button" tabIndex="0">
+    <span className="delete-btn btn-lg float-right" {...props} role="button" tabIndex="0" style={{color: 'red'}}>
       <MdDelete size={35}/>
     </span>
   );
