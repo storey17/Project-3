@@ -12,19 +12,19 @@ function App() {
     <Router>
       <div>
         <Switch>
-        
-        <Route exact path={["/login"]}> 
-          <Login /> 
-        </Route>
-          
+
+          <Route exact path={["/login"]}>
+            <Login />
+          </Route>
+
           <Route exact path={["/", "/signup"]}>
             <SignUp />
           </Route>
-          
+
           <Route exact path={["/podcasts"]}>
             <Podcasts />
           </Route>
-          
+
           <Route>
             <NoMatch />
           </Route>

@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
 import DeleteBtn from "../../components/DeleteBtn";
-import Jumbotron from "../../components/Jumbotron";
 import Jumbotron1 from "../../components/Jumbotron1/Jumbotron1";
 import Footer from "../../components/Footer/Footer";
 import API from "../../utils/API";
-import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Episode, Podcast, Genre } from "../../components/Form";
 import { FormBtn } from "../../components/Form/FormBtn";
