@@ -20,7 +20,8 @@ function ThirdPartyAPI() {
         setApiData({ ...apiData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = (event) => {
+        event.preventDefault();
         axios.get('/api/search/' + apiData.searchTerm)
             .then(data => {
                 console.log(data.data);
@@ -33,18 +34,20 @@ function ThirdPartyAPI() {
     return (
         <div>
             <section className="mt-5">
-                <div className="card mx-auto shadow-lg mb-5 bg-white rounded" style={{ width: "48rem", }}><div className="card-header mb-3" id="card-header-bg" style={{ textAlign: "center", background: "#ff8e88" }}><h3>Find New Podcasts</h3></div><div className="card-body">
+                <div className="card mx-auto shadow-lg mb-5 bg-white rounded" style={{ width: "48rem", }}><div className="card-header mb-3" id="card-header-bg" style={{ textAlign: "center", background: "#ff8e88" }}><h2>Find Your New Obsession</h2></div><div className="card-body">
                     <form className="rounded">
                         <div className="input-group input-group-lg">
                             <div className="input-group-prepend">
-                                <span className="input-group-text border-0 pr-2 pl-2">
+                                <span className="input-group-text border-0 pr-2 pl-2" >
                                     <GoSearch />
                                 </span>
                             </div>
                             <input
+                                className="form-control"
                                 value={apiData.searchTerm}
                                 name="searchTerm"
                                 onChange={handleChange}
+                                placeholder="What are you interested in?"
                             />
                             <div className="input-group-append">
                                 <span className="input-group-text border-0 py-0 pl-1 pr-3" style={{ background: 'transparent' }}>
@@ -53,15 +56,6 @@ function ThirdPartyAPI() {
                             </div>
                         </div>
                     </form>
-
-                    <input
-                        value={apiData.searchTerm}
-                        name="searchTerm"
-                        onChange={handleChange}
-                    />
-
-                    <button onClick={handleSubmit}>Search</button>
-
                     <div>
                         {apiData.data.map(item => {
                             return (
