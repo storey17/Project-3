@@ -32,8 +32,8 @@ function ThirdPartyAPI() {
 
 
     return (
-            <section className="mt-5">
-                <div className="card mx-auto shadow-lg mb-5 bg-white rounded" style={{ width: "48rem", }}><div className="card-header mb-3" id="card-header-bg" style={{ textAlign: "center", background: "#ff8e88" }}><h2>Find Your New Obsession <FaPodcast/></h2></div><div className="card-body">
+            <section className="pt-md-10 mt-5 pl-5">
+                <div className="card shadow-lg bg-white rounded"><div className="card-header mb-3" id="card-header-bg" style={{ textAlign: "center", background: "#ff8e88" }}><h2>Find Your New Obsession <FaPodcast/></h2></div><div className="card-body">
                     <form className="rounded">
                         <div className="input-group input-group-lg">
                             <div className="input-group-prepend">
@@ -58,7 +58,7 @@ function ThirdPartyAPI() {
                     <div>
                         {apiData.data.map(item => {
                             return (
-                                <div className="col mt-2">
+                                <div className="col mt-5">
                                     <div key={item.title_original} className="card card-article-wide flex-md-row no-gutters hover-shadow-3d" style={{ width: "rem" }}>
                                         <div class="col-md-5 col-lg-6">
                                             <img src={item.thumbnail} className="card-img-top" alt="podcast image" />

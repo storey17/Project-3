@@ -69,10 +69,11 @@ function Podcasts() {
             <Jumbotron1 />
             <div className="container-fluid px-md-0">
                 <div className="row justify-content-between no-gutters mx-md-5">
-                    <div className="col-12 col-md-4 position-md-sticky d-flex vh-md-100">
+                    <div className="col-12 col-md-5 position-md-sticky d-flex vh-md-100 mx-auto">
+
                         <aside className="flex-grow-1 py-8 py-md-10">
                             <section className="mt-5">
-                                <div className="card mx-auto shadow-lg mb-5 bg-white rounded" style={{ width: '35rem' }}>
+                                <div className="card mx-auto shadow-lg mb-5 bg-white rounded">
                                     <div className="card-header mb-3" id="card-header-bg" style={{ textAlign: 'center', background: '#ff8e88' }}>
                                         <h2>Podcasts Needing My Ears <MdHearing /></h2>
                                     </div>
@@ -106,7 +107,7 @@ function Podcasts() {
                                 </div>
                             </section>
                             <section className="mt-3">
-                                <div className="card mx-auto shadow-lg p-3 mb-5 bg-white rounded" style={{ width: '35rem' }}>
+                                <div className="card mx-auto shadow-lg p-3 mb-5 bg-white rounded">
                                     {podcasts.length ? (
                                         <div>
                                             {podcasts.map(podcast => (
@@ -128,13 +129,10 @@ function Podcasts() {
                                 </div >
                             </section >
                         </aside >
-
-                        <div className="col-12 col-md-7">
-                            <section className="pt-md-10">
-                                <ThirdPartyAPI />
-                            </section>
-                        </div>
                     </div >
+                    <div className="col-12 col-md-7">
+                            <ThirdPartyAPI /> 
+                    </div>
                 </div >
             </div>
             <Footer />
