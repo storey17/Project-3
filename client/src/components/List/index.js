@@ -1,6 +1,5 @@
 import React from "react";
 import "./style.css";
-import { FaPodcast } from 'react-icons/fa';
 
 export function List({ children }) {
   return (

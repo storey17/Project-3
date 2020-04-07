@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import './ThirdPartyAPI.css';
 import { GoSearch } from 'react-icons/go';
-
+import { FaPodcast } from 'react-icons/fa';
 
 function ThirdPartyAPI() {
 
@@ -33,7 +33,7 @@ function ThirdPartyAPI() {
 
     return (
             <section className="mt-5">
-                <div className="card mx-auto shadow-lg mb-5 bg-white rounded" style={{ width: "48rem", }}><div className="card-header mb-3" id="card-header-bg" style={{ textAlign: "center", background: "#ff8e88" }}><h2>Find Your New Obsession</h2></div><div className="card-body">
+                <div className="card mx-auto shadow-lg mb-5 bg-white rounded" style={{ width: "48rem", }}><div className="card-header mb-3" id="card-header-bg" style={{ textAlign: "center", background: "#ff8e88" }}><h2>Find Your New Obsession <FaPodcast/></h2></div><div className="card-body">
                     <form className="rounded">
                         <div className="input-group input-group-lg">
                             <div className="input-group-prepend">
