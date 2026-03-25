@@ -19,6 +19,3 @@ Axios
 Bcrypt
 SQL/Sequelize
 Passport
-
-### Heroku Link
-https://podhelpme.herokuapp.com/
