@@ -27,7 +27,7 @@
     "url": "https://github.com/storey17/Project-3/issues"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
     "express": "^4.16.3",
