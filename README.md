@@ -19,3 +19,6 @@ Axios
 Bcrypt
 SQL/Sequelize
 Passport
+
+# April 2026 Update
+Heroku app is no longer running.
